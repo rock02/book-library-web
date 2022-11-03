@@ -1,0 +1,38 @@
+<div class="card">
+    <p-dataView [lazy]="true" [value]="books" >
+        <ng-template let-book pTemplate="header">
+            <div class="flex flex-column md:flex-row md:justify-content-between">
+                <p-dataViewLayoutOptions></p-dataViewLayoutOptions>
+            </div>
+        </ng-template>
+        <ng-template let-book pTemplate="gridItem">         
+            <div class="book-grid-item card">
+                <div class="book-grid-item-top">
+                    <div>
+                        <i class="pi pi-tag book-category-icon"></i>
+                        <span class="book-category">{{book.category}}</span>                      
+                    </div>
+                    <span
+                        class="book-badge status-{{book.id}}">Disponivel
+                    </span>
+                </div>
+                <div class="book-grid-item-content">
+                    <p-image class="img" src="{{book.sumaryPath}}"></p-image>
+                    <div class="book-title">{{book.title}}</div>
+                    <div class="book-publishingCompany">{{book.publishingCompany}}</div>
+                    <p-rating [ngModel]="book.rating" [readonly]="true" [cancel]="false"></p-rating>
+                </div>
+                <div class="book-grid-item-bottom">                 
+                    <button id="trash-{{book.id}}" pButton type="button" icon="pi pi-trash" class="p-button-text" (click)="ondelete(book.id)" style="border: 1px solid red; background-color: red; color: aliceblue;"></button>
+                    <p-button id="edit-{{book.id}}" pButton type="button" icon="pi pi-pencil" class="p-button-text" [routerLink]="[book.id]"> 
+                    </p-button>
+                </div> 
+            </div>
+        </ng-template>
+        
+        <ng-template pTemplate="footer">
+            Footer
+        </ng-template>
+    </p-dataView>
+
+</div>

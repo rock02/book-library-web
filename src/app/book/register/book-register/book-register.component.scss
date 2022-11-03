@@ -1,0 +1,18 @@
+.form-mg {
+    margin: 40px;
+}
+.lb {
+    font-size: 20px;
+    font-weight: 100;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    display: flex;
+    color: #495057;
+}
+#input-title, #input-author, #input-publishingCompany, #select-rating {
+    width: 70%;
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+    padding-bottom: 5px;
+}
+

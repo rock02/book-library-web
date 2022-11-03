@@ -1,0 +1,41 @@
+<p-messages [(value)]="msgs"></p-messages>
+<div class="form-mg">
+    <label class="lb">Titulo</label>
+    <div>
+        <input id="input-title" type="text" pInputText name="title" [(ngModel)]="book.title"> 
+    </div>
+    <label class="lb">Autor</label>
+    <div>
+        <input id="input-author" type="text" pInputText name="author" [(ngModel)]="book.author">
+    </div>
+
+    <label class="lb">Editora</label>
+    <div>
+        <input id="input-publishingCompany" type="text" pInputText name="publishingCompany" [(ngModel)]="book.publishingCompany">
+    </div>
+
+    <div style="display: flex; width: 100%; padding-top: 20px;">
+        
+        <div style="width: 30%; padding-right: 20px;">
+            <label class="lb" >Nota</label>
+            <div>
+                <p-inputNumber [showButtons]="true" [(ngModel)]="book.rating" [min]="0" [max]="5"></p-inputNumber>
+                <!-- <input id="select-rating"  type="text" pInputText [(ngModel)]="book.rating"> -->
+            </div>
+            <label class="lb" >Categoria</label>
+            <div>
+                <p-treeSelect id="select-category" [(ngModel)]="category" [options]="categories" placeholder="Selecione a categoria">
+                </p-treeSelect>
+            </div>
+        </div>
+        <div style="width: 40%; ">
+            <div>
+                <label class="lb" >Selecione uma capa</label>
+                <p-fileUpload name="myfile[]"
+                    accept="image/*" [auto]="true" (onSelect)="myUploader($event)" accept=".png, .jpg, .jpeg"></p-fileUpload>
+            </div>
+        </div>
+    </div>
+
+    <footer (save)="onClickSave()" (back)="onClickBack()"></footer>
+</div>
